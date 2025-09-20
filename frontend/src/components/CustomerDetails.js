@@ -15,7 +15,7 @@ export default function CustomerDetails(){
   const [payments, setPayments] = useState([]);
 
   const fetch = async () => {
-    const res = await axios.get(`http://localhost:4000/api/customers/${id}`);
+    const res = await axios.get(`http://localhost:5000/api/customers/${id}`);
     setCustomer(res.data.customer);
     setAddresses(res.data.addresses || []);
     setCustomer(c=>({...c, singleAddress: (res.data.addresses || []).length===1}));
@@ -26,24 +26,24 @@ export default function CustomerDetails(){
   const addAddress = async (e) => {
     e.preventDefault();
     if(!line1 || !city) return alert('Line1 and city required');
-    await axios.post(`http://localhost:4000/api/customers/${id}/addresses`, { line1, city, state: stateV, pincode });
+    await axios.post(`http://localhost:5000/api/customers/${id}/addresses`, { line1, city, state: stateV, pincode });
     setLine1(''); setCity(''); setStateV(''); setPincode('');
     fetch();
   };
 
   const removeAddr = async (aid) => {
     if(!window.confirm('Delete address?')) return;
-    await axios.delete(`http://localhost:4000/api/addresses/${aid}`);
+    await axios.delete(`http://localhost:5000/api/addresses/${aid}`);
     fetch();
   };
 
   const fetchOrders = async () => {
-    const res = await axios.get(`http://localhost:4000/api/customers/${id}/orders`);
+    const res = await axios.get(`http://localhost:5000/api/customers/${id}/orders`);
     setOrders(res.data.orders || []);
   };
 
   const fetchPayments = async () => {
-    const res = await axios.get(`http://localhost:4000/api/customers/${id}/payments`);
+    const res = await axios.get(`http://localhost:5000/api/customers/${id}/payments`);
     setPayments(res.data.payments || []);
   };
 
