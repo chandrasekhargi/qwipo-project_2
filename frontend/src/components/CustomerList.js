@@ -16,7 +16,7 @@ export default function CustomerList(){
 
   const fetch = async (reset=false) => {
     setLoading(true);
-    const res = await axios.get('http://localhost:5000/api/customers', { params: { q, city, state: stateV, pincode, page, limit } });
+    const res = await axios.get('https://qwipo-server-2.onrender.com/api/customers', { params: { q, city, state: stateV, pincode, page, limit } });
     setTotal(res.data.total || 0);
     if(reset) setCustomers(res.data.customers);
     else setCustomers(prev=>[...prev, ...res.data.customers]);
@@ -51,7 +51,7 @@ export default function CustomerList(){
 
   const remove = async (id) => {
     if(!window.confirm('Delete customer?')) return;
-    await axios.delete(`http://localhost:5000/api/customers/${id}`);
+    await axios.delete(`https://qwipo-server-2.onrender.com/api/customers/${id}`);
     setCustomers([]);
     setPage(1);
     fetch(true);
