@@ -1,0 +1,30 @@
+body{font-family: Arial, sans-serif; background:#f6f8fa; margin:0; padding:0}
+.container{max-width:1100px;margin:18px auto;padding:16px;background:white;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+nav a{margin-left:12px;text-decoration:none;color:#0366d6}
+.top-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}
+.btn{padding:6px 10px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+.btn.primary{background:#0366d6;color:white;border-color:#0366d6}
+.form-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+input,textarea,select{padding:8px;border:1px solid #ddd;border-radius:6px}
+input.small{width:120px}
+.addr{background:#fafafa;padding:8px;border-radius:6px;margin-top:8px}
+.tabs{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.tab{padding:8px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+/* infinite scroll container */
+.list-container{max-height:600px;overflow:auto;padding-right:8px}
+.customer-card{padding:8px;border-bottom:1px solid #eee}
+/* mobile */
+@media(max-width:600px){
+  .container{margin:8px;padding:12px}
+  table, thead, tbody, th, td, tr{display:block}
+  tr{margin-bottom:12px}
+  th{font-weight:600}
+  td{padding:6px 0}
+}
+
+:link {
+  text-decoration: none;
+}

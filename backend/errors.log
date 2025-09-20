@@ -1,0 +1,96 @@
+[2025-09-20T05:19:25.785Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:19:57.031Z] GET /api/customers?q=&city=Hyderabad&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:19:57.043Z] GET /api/customers?q=&city=Hyderabad&state=Telangana&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? AND a.state = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 'Telangana', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:19:57.053Z] GET /api/customers?q=&city=Hyderabad&state=Telangana&pincode=500016&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? AND a.state = ? AND a.pincode = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 'Telangana', '500016', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:20:03.092Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:20:59.411Z] GET /api/customers?q=&city=Hyderabad&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:20:59.433Z] GET /api/customers?q=&city=Hyderabad&state=Telangana&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? AND a.state = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 'Telangana', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:20:59.450Z] GET /api/customers?q=&city=Hyderabad&state=Telangana&pincode=500016&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? AND a.state = ? AND a.pincode = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 'Telangana', '500016', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:22:44.694Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:23:39.458Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:23:52.682Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:24:07.136Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:33:21.323Z] GET /api/customers?q=&city=&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id ORDER BY id asc LIMIT ? OFFSET ?', [ 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:33:24.874Z] GET /api/customers?q=&city=Hyderabad&state=&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:33:24.906Z] GET /api/customers?q=&city=Hyderabad&state=Telangana&pincode=&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? AND a.state = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 'Telangana', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
+[2025-09-20T05:33:24.920Z] GET /api/customers?q=&city=Hyderabad&state=Telangana&pincode=500016&page=1&limit=10 - Error: SQLITE_ERROR: ambiguous column name: id
+--> in Database#all('SELECT DISTINCT c.id, c.firstName, c.lastName, c.phone, c.email FROM customers c LEFT JOIN addresses a ON a.customerId = c.id WHERE a.city = ? AND a.state = ? AND a.pincode = ? ORDER BY id asc LIMIT ? OFFSET ?', [ 'Hyderabad', 'Telangana', '500016', 10, 0 ], [Function (anonymous)])
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:27:8
+    at new Promise (<anonymous>)
+    at allAsync (C:\Users\cherry\qwipo_final_complete\backend\db.js:26:10)
+    at C:\Users\cherry\qwipo_final_complete\backend\db.js:104:28
