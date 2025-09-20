@@ -1,17 +1,77 @@
+require('dotenv').config();
 const express = require('express');
+const passport = require('passport')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const { body, validationResult } = require('express-validator');
-const db = require('./db');
+const dbModule = require('./db');
+
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-db.init();
+dbModule.init();
+
+//AUTH Database setup
+
+const dbPath = process.env.DATABASE_URL || path.join(__dirname, 'local.db');
+const sqliteDb = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error('Error connecting to database:', err.message);
+  } else {
+    console.log('Connected to SQLite database at', dbPath);
+  }
+});
+
+//PASSPORT
+app.use(express.urlencoded({ extended: true }));
+
+// Session required for passport
+app.use(session({
+  secret: process.env.SESSION_SECRET|| 'mySuperSecret123!', //use process.env.SESSION_SECRET
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK_URL
+},
+(accessToken, refreshToken, profile, done) => {
+  // Here you can save/find user in your DB
+  console.log('Google profile:', profile);
+  return done(null, profile);
+}));
+
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
+
+app.get('/', (req, res) => {
+  res.send('Backend server running!');
+});
+
+// Google OAuth login
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+// Google OAuth callback
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+    res.send('Google login successful!');
+  }
+);
+
+
 
 const logStream = fs.createWriteStream(path.join(__dirname, 'errors.log'), { flags: 'a' });
 
