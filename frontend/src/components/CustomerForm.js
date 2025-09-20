@@ -17,7 +17,7 @@ export default function CustomerForm(){
 
   useEffect(()=>{
     if(id){
-      axios.get(`http://localhost:5000/api/customers/${id}`).then(r=>{
+      axios.get(`https://qwipo-server-2.onrender.com/api/customers/${id}`).then(r=>{
         const c = r.data.customer;
         setFirst(c.firstName || '');
         setLast(c.lastName || '');
@@ -35,10 +35,10 @@ export default function CustomerForm(){
     if(!validateEmail(email)) return alert('Invalid email');
     try{
       if(id){
-        await axios.put(`http://localhost:5000/api/customers/${id}`, { firstName, lastName, phone, email, accountType });
+        await axios.put(`https://qwipo-server-2.onrender.com/api/customers/${id}`, { firstName, lastName, phone, email, accountType });
         alert('Updated');
       } else {
-        await axios.post('http://localhost:5000/api/customers', { firstName, lastName, phone, email, accountType });
+        await axios.post('https://qwipo-server-2.onrender.com/api/customers', { firstName, lastName, phone, email, accountType });
         alert('Created');
       }
       navigate('/');
